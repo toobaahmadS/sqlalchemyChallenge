@@ -92,7 +92,7 @@ def stations():
     # Convert list of tuples into normal list and return the JSonified list
     list_of_stations = list(np.ravel(active_stations)) 
     return jsonify(list_of_stations)
- observation_dates = []
+    observation_dates = []
     temperature_observations = []
 
     for date, observation in station_temps:
@@ -126,7 +126,7 @@ def trip1(start_date, end_date='2017-08-23'):
         return jsonify(trip_stats)
     else:
         return jsonify({"error": f"Date {start_date} not found or not formatted as YYYY-MM-DD."}), 404
-    @app.route("/api/v1.0/trip/<start_date>/<end_date>")
+@app.route("/api/v1.0/trip/<start_date>/<end_date>")
 def trip2(start_date, end_date='2017-08-23'):
     # Calculate minimum, average and maximum temperatures for the range of dates starting with start date.
     # If no valid end date is provided, the function defaults to 2017-08-23.
